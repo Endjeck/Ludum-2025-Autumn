@@ -1,7 +1,25 @@
+using TMPro;
 using UnityEngine;
 
 public class ObjectDescription : MonoBehaviour
 {
-    [TextArea(3, 10)]
-    public string descriptionText = "Здесь уникальное описание объекта";
+    [SerializeField] private TranslationEnum _translation;
+    public string Description { get; private set; }
+    private ServiceLocator _locator => ServiceLocator.Container;
+    private Localizator _localizator;
+    private void Awake()
+    {
+        _localizator = _locator.Get<Localizator>();
+        _localizator.OnLanguageChange += ChangeText;
+        ChangeText();
+    }
+    private void OnDisable()
+    {
+        _localizator.OnLanguageChange -= ChangeText;
+    }
+
+    private void ChangeText()
+    {
+        Description = _localizator.GetLocalizetedText(_translation);
+    }
 }

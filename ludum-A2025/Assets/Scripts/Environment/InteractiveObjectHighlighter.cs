@@ -19,6 +19,7 @@ public class InteractiveObjectHighlighter : MonoBehaviour
     private Renderer currentRenderer;
     private Color originalColor;
     private bool isPromptVisible = false;
+    private NoteObject _note = null;
 
     private void Start()
     {
@@ -34,6 +35,10 @@ public class InteractiveObjectHighlighter : MonoBehaviour
         {
             ShowInfoText();
         }
+        if ((Input.GetAxis("Horizontal") !=0 || Input.GetAxis("Vertical") != 0)
+            && _note!=null)
+            _note.ActivateNote(false);
+
     }
 
     private void CheckObjectUnderCursor()
@@ -78,7 +83,10 @@ public class InteractiveObjectHighlighter : MonoBehaviour
         }
         Debug.Log(infoText);
         infoText.gameObject.SetActive(true);
-        infoText.text = "Нажмите на Е";
+        if(PlayerPrefs.GetInt(TranslationConstants.TranslateParametr) == 0)
+            infoText.text = "Нажмите на Е";
+        else
+            infoText.text = "Press Е";
         isPromptVisible = true;
     }
 
@@ -102,14 +110,23 @@ public class InteractiveObjectHighlighter : MonoBehaviour
         if (currentObject == null) return;
 
         // Получаем компонент с описанием объекта, если есть
-        ObjectDescription description = currentObject.GetComponent<ObjectDescription>();
-        if (description != null && !string.IsNullOrEmpty(description.descriptionText))
+        ObjectDescription description = null;
+        currentObject.TryGetComponent(out description);
+        currentObject.TryGetComponent(out _note);
+        if (description != null && !string.IsNullOrEmpty(description.Description))
         {
-            infoText.text = description.descriptionText;
+            infoText.text = description.Description;
+        }
+        else if (_note != null) 
+        {
+            _note.ActivateNote(true);
         }
         else
         {
-            infoText.text = "Информация об объекте отсутствует";
+            if (PlayerPrefs.GetInt(TranslationConstants.TranslateParametr) == 0)
+                infoText.text = "Информация об объекте отсутствует";
+            else
+                infoText.text = "sorry, I forgot to put text here";
         }
         infoText.gameObject.SetActive(true);
     }

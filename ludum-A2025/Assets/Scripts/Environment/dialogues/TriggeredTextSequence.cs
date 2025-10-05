@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 [RequireComponent(typeof(Collider))]
 public class TriggeredTextSequence : MonoBehaviour
@@ -21,6 +22,9 @@ public class TriggeredTextSequence : MonoBehaviour
     public string playerTag = "Player";
 
     private bool sequenceRunning = false;
+
+    private ServiceLocator _locator => ServiceLocator.Container;
+    private Localizator _localizator;
 
     private void Reset()
     {
@@ -62,5 +66,31 @@ public class TriggeredTextSequence : MonoBehaviour
         }
 
         sequenceRunning = false;
+    }
+    private void Awake()
+    {
+        _localizator = _locator.Get<Localizator>();
+        _localizator.OnLanguageChange += ChangeText;
+        ChangeText();
+    }
+    private void OnDisable()
+    {
+        _localizator.OnLanguageChange -= ChangeText;
+    }
+
+    private void ChangeText()
+    {
+        textLines = SplitBySemicolon(_localizator.GetLocalizetedText(TranslationEnum.COLLECTOR));
+    }
+    public static string[] SplitBySemicolon(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+            return new string[0]; // пустой массив если строка пустая
+
+        return input
+            .Split(';')                  // разбиваем по ;
+            .Select(s => s.Trim())       // убираем лишние пробелы
+            .Where(s => !string.IsNullOrEmpty(s)) // убираем пустые элементы
+            .ToArray();
     }
 }

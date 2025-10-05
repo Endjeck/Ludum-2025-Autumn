@@ -1,0 +1,29 @@
+{
+    "Translations": [
+        {
+            "kind": "PLAY",
+            "en": "Play",
+            "ru": "Играть"
+        },
+        {
+            "kind": "WELCOME",
+            "en": "Welcome to my test game",
+            "ru": "Йоууу! чё каво"
+        },
+        {
+            "kind": "COLLECTOR",
+            "en": "YES;WORKS;1",
+            "ru": "Работает;Типа"
+        },
+        {
+            "kind": "NOTE_1",
+            "en": "Very mnogo texta",
+            "ru": "Реально много текста"
+        },
+        {
+            "kind": "OBJECT_1",
+            "en": "Description",
+            "ru": "это база"
+        }
+    ]
+}
