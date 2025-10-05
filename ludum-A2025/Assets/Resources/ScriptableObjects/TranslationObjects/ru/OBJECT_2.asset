@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 964db4a0a43cc0d4d94e291dc3be3fb3, type: 3}
-  m_Name: COLLECTOR
+  m_Name: OBJECT_2
   m_EditorClassIdentifier: 
-  _text: YES;WORKS
+  _text: "\u044D\u0442\u043E \u0431\u0430\u0437\u04302"

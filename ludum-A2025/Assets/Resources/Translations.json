@@ -12,7 +12,7 @@
         },
         {
             "kind": "COLLECTOR",
-            "en": "YES;WORKS;1",
+            "en": "YES;WORKS",
             "ru": "Работает;Типа"
         },
         {
@@ -24,6 +24,11 @@
             "kind": "OBJECT_1",
             "en": "Description",
             "ru": "это база"
+        },
+        {
+            "kind": "OBJECT_2",
+            "en": "Description2",
+            "ru": "это база2"
         }
     ]
 }

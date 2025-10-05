@@ -81,7 +81,6 @@ public class InteractiveObjectHighlighter : MonoBehaviour
             originalColor = currentRenderer.material.color;
             currentRenderer.material.color = highlightColor;
         }
-        Debug.Log(infoText);
         infoText.gameObject.SetActive(true);
         if(PlayerPrefs.GetInt(TranslationConstants.TranslateParametr) == 0)
             infoText.text = "Íאזלטעו םא Å";
@@ -113,6 +112,12 @@ public class InteractiveObjectHighlighter : MonoBehaviour
         ObjectDescription description = null;
         currentObject.TryGetComponent(out description);
         currentObject.TryGetComponent(out _note);
+        DiskObject diskObject = null;
+        currentObject.TryGetComponent(out diskObject);
+        PickableDisk pickableDisk = null;
+        currentObject.TryGetComponent(out pickableDisk);
+        EmptyDisk emptyDisk = null;
+        currentObject.TryGetComponent<EmptyDisk>(out emptyDisk);
         if (description != null && !string.IsNullOrEmpty(description.Description))
         {
             infoText.text = description.Description;
@@ -120,6 +125,18 @@ public class InteractiveObjectHighlighter : MonoBehaviour
         else if (_note != null) 
         {
             _note.ActivateNote(true);
+        }
+        else if(diskObject != null)
+        {
+            diskObject.RotateDisk();
+        }
+        else if(pickableDisk != null)
+        {
+            pickableDisk.CollectDisk();
+        }
+        else if(emptyDisk !=null)
+        {
+            emptyDisk.InsertDisk();
         }
         else
         {
