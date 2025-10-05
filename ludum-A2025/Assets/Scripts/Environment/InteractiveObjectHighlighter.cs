@@ -11,9 +11,6 @@ public class InteractiveObjectHighlighter : MonoBehaviour
     [Tooltip("Цвет подсветки при наведении")]
     public Color highlightColor = Color.yellow;
 
-    [Tooltip("UI TextMeshProUGUI для подсказки 'Нажмите на Е'")]
-    public TextMeshProUGUI promptText;
-
     [Tooltip("UI TextMeshProUGUI для отображения информации об объекте")]
     public TextMeshProUGUI infoText;
 
@@ -26,7 +23,6 @@ public class InteractiveObjectHighlighter : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-        promptText.gameObject.SetActive(false);
         infoText.gameObject.SetActive(false);
     }
 
@@ -80,11 +76,10 @@ public class InteractiveObjectHighlighter : MonoBehaviour
             originalColor = currentRenderer.material.color;
             currentRenderer.material.color = highlightColor;
         }
-
-        promptText.text = "Нажмите на Е";
-        promptText.gameObject.SetActive(true);
+        Debug.Log(infoText);
+        infoText.gameObject.SetActive(true);
+        infoText.text = "Нажмите на Е";
         isPromptVisible = true;
-        infoText.gameObject.SetActive(false);
     }
 
     private void ClearCurrentObject()
@@ -97,12 +92,13 @@ public class InteractiveObjectHighlighter : MonoBehaviour
         currentObject = null;
         currentRenderer = null;
 
-        promptText.gameObject.SetActive(false);
+        infoText.gameObject.SetActive(false);
         isPromptVisible = false;
     }
 
     private void ShowInfoText()
     {
+       
         if (currentObject == null) return;
 
         // Получаем компонент с описанием объекта, если есть

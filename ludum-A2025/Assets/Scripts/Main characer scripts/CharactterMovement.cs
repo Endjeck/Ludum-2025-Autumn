@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CharactterMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float walkSpeed = 5f;           // скорость ходьбы
     public float runSpeed = 10f;           // скорость бега (ускорение)
     public float acceleration = 10f;       // скорость изменени€ скорости (ускорение)
-    public float jumpForce = 7f;            // сила прыжка
+    public float jumpForce = 7f;           // сила прыжка
 
     [Header("Ground Check Settings")]
     public LayerMask groundMask;            // слой земли дл€ проверки касани€
@@ -16,20 +14,26 @@ public class CharactterMovement : MonoBehaviour
 
     [Header("Mouse Rotation Settings")]
     public float mouseSensitivity = 5f;    // чувствительность мыши дл€ вращени€
+    public Transform cameraTransform;      // ссылка на камеру (должна быть дочерним объектом или назначена в инспекторе)
 
     private Rigidbody rb;
     private float currentSpeed;
     private Vector3 inputDirection;
     private bool isGrounded;
 
-    private float rotationY = 0f;           // текущий поворот по Y
+    private float rotationY = 0f;          // поворот персонажа по оси Y (влево-вправо)
+    private float rotationX = 0f;          // поворот камеры по оси X (вверх-вниз)
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        // –азрешаем вращение только по Y вручную
         currentSpeed = walkSpeed;
+
+        if (cameraTransform == null)
+        {
+            Debug.LogError("Camera Transform is not assigned! Please assign it in inspector.");
+        }
     }
 
     private void Update()
@@ -65,7 +69,6 @@ public class CharactterMovement : MonoBehaviour
 
     private void CheckGround()
     {
-        // ѕровер€ем, стоит ли персонаж на земле с помощью луча вниз
         isGrounded = Physics.Raycast(transform.position, Vector3.down, groundCheckDistance + 0.1f, groundMask);
     }
 
@@ -79,21 +82,33 @@ public class CharactterMovement : MonoBehaviour
 
     private void HandleRotation()
     {
-        // ѕолучаем движение мыши по горизонтали (движение вправо/влево)
-        float mouseX = Input.GetAxis("Mouse X");
+        // ѕолучаем движение мыши
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        // ”величиваем текущий поворот по Y на смещение мыши с чувствительностью
-        rotationY += mouseX * mouseSensitivity;
-
-        // ѕримен€ем поворот только по оси Y (вверх-вниз ось не трогаем)
+        // ¬ращение персонажа по Y (влево-вправо)
+        rotationY += mouseX;
         transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
+
+        // ¬ращение камеры по X (вверх-вниз) с ограничением угла поворота
+        rotationX -= mouseY;
+        rotationX = Mathf.Clamp(rotationX, -80f, 80f);
+        cameraTransform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
     }
 
     private void Move()
     {
-        // ƒвигаем персонажа в локальных координатах с учетом поворота
-        // „тобы движение было направлено согласно взгл€ду персонажа, преобразуем inputDirection из локальных в мировые координаты
-        Vector3 moveDirection = transform.TransformDirection(inputDirection);
+        // ƒвигаем персонажа в направлении взгл€да камеры, игнориру€ вертикальную составл€ющую взгл€да
+        Vector3 forward = cameraTransform.forward;
+        forward.y = 0;
+        forward.Normalize();
+
+        Vector3 right = cameraTransform.right;
+        right.y = 0;
+        right.Normalize();
+
+        Vector3 moveDirection = forward * inputDirection.z + right * inputDirection.x;
+        moveDirection = moveDirection.normalized;
 
         Vector3 targetVelocity = moveDirection * currentSpeed;
         Vector3 velocity = rb.velocity;
