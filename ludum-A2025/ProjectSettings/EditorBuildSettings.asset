@@ -12,6 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Main menu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/First level.unity
+    guid: 5383e3cc4a1c87845a58d3c87e610b1a
+  - enabled: 1
+    path: Assets/Scenes/Secomd level.unity
+    guid: 02a973e7d438bcc4990fa4facebbb690
+  - enabled: 0
+    path: Assets/Scenes/Kirillsmain 1.unity
+    guid: 447abd44379184043bbf5fabf081e9bf
+  - enabled: 0
     path: Assets/Scenes/Kirillsmain.unity
     guid: 89e299d83b85c0645abd680823703c12
   m_configObjects: {}

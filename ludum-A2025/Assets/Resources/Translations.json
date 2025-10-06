@@ -1,0 +1,74 @@
+{
+    "Translations": [
+        {
+            "kind": "PLAY",
+            "en": "Play",
+            "ru": "Играть"
+        },
+        {
+            "kind": "WELCOME",
+            "en": "Welcome to my test game",
+            "ru": "Йоууу! чё каво"
+        },
+        {
+            "kind": "COLLECTOR",
+            "en": "YES;WORKS",
+            "ru": "Работает;Типа"
+        },
+        {
+            "kind": "NOTE_1",
+            "en": "Very mnogo texta",
+            "ru": "Реально много текста"
+        },
+        {
+            "kind": "OBJECT_1",
+            "en": "Description",
+            "ru": "это база"
+        },
+        {
+            "kind": "OBJECT_2",
+            "en": "Description2",
+            "ru": "это база2"
+        },
+        {
+            "kind": "TITLE",
+            "en": "The black stone",
+            "ru": "Черный камень"
+        },
+        {
+            "kind": "NOTE_2",
+            "en": "Awesomness",
+            "ru": "Великолепная записка"
+        },
+        {
+            "kind": "OBJECT_3",
+            "en": "Smth",
+            "ru": "что-то"
+        },
+        {
+            "kind": "DIALOGUE_1",
+            "en": "No translation yet;No tranlssation yet;No translddation yet",
+            "ru": "Фууух, это было тяжело…;Ладно, соберись Тобаяс, ты почти справился…; Эта штука должны быть прямо тут, не далеко. Заберешь ее и домой"
+        },
+      {
+        "kind": "DIALOGUE_2",
+        "en": "ergiu",
+        "ru": "Хм, 3 двери… Помоему что то такое было в моем заказе… "
+      },
+      {
+        "kind": "DIALOGUE_3",
+        "en": "No translation yet",
+        "ru": "Ха! Так и знал. Фух, ладно, последний рывок и домой… "
+      },
+      {
+        "kind": "DIALOGUE_4",
+        "en": "No translation yet",
+        "ru": "Да! Конец этого подземелья!"
+      },
+      {
+        "kind": "DIALOGUE_5",
+        "en": "No translation yet;No translation yet;No translation yet;No translation yet",
+        "ru": "!!!!!;П…пусто?;Но как такое возможно?;Видимо, домой я отправлюсь нескоро…"
+      }
+    ]
+}

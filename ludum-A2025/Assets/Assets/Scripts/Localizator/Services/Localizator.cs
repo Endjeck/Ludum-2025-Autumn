@@ -26,9 +26,10 @@ public class Localizator :IGameService
 
     public string GetLocalizetedText(TranslationEnum translation)
     {
-        TranslationSO translationSO = Resources.Load<TranslationSO>(TranslationConstants.PathToTranslationFoldersResources 
+        var translationSO = Resources.Load(TranslationConstants.PathToTranslationFoldersResources 
             + (_english ? TranslationConstants.EnFolderName : TranslationConstants.RuFolderName)
-            + @"\" + translation.ToString());
+            + @"\" + translation.ToString()) as TranslationSO;
+      
         return translationSO.Text;
     }
     

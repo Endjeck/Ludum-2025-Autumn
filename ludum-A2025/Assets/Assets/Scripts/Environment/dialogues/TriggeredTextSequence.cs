@@ -25,6 +25,7 @@ public class TriggeredTextSequence : MonoBehaviour
 
     private ServiceLocator _locator => ServiceLocator.Container;
     private Localizator _localizator;
+    [SerializeField] private TranslationEnum _translation;
 
     private void Reset()
     {
@@ -57,8 +58,9 @@ public class TriggeredTextSequence : MonoBehaviour
 
         for (int i = 0; i < textLines.Length; i++)
         {
-            displayText.text = textLines[i];
             displayText.gameObject.SetActive(true);
+            displayText.text = textLines[i];
+            
 
             yield return new WaitForSeconds(delays[i]);
 
@@ -67,22 +69,25 @@ public class TriggeredTextSequence : MonoBehaviour
 
         sequenceRunning = false;
     }
-    private void Awake()
+    private void Start()
     {
         _localizator = _locator.Get<Localizator>();
         _localizator.OnLanguageChange += ChangeText;
         ChangeText();
+        displayText.gameObject.SetActive(false);
+
+
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
         _localizator.OnLanguageChange -= ChangeText;
     }
 
     private void ChangeText()
     {
-        textLines = SplitBySemicolon(_localizator.GetLocalizetedText(TranslationEnum.COLLECTOR));
+        textLines = SplitBySemicolon(_localizator.GetLocalizetedText(_translation));
     }
-    public static string[] SplitBySemicolon(string input)
+    public string[] SplitBySemicolon(string input)
     {
         if (string.IsNullOrEmpty(input))
             return new string[0]; // пустой массив если строка пустая

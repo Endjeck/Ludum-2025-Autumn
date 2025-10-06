@@ -8,6 +8,8 @@ TagManager:
   - Interactive
   - A
   - Note
+  - Wrong Door
+  - Right Door
   layers:
   - Default
   - TransparentFX
