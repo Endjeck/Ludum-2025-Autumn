@@ -69,6 +69,32 @@
         "kind": "DIALOGUE_5",
         "en": "No translation yet;No translation yet;No translation yet;No translation yet",
         "ru": "!!!!!;П…пусто?;Но как такое возможно?;Видимо, домой я отправлюсь нескоро…"
+      },
+      {
+        "kind": "DIALOGUE_6",
+        "en": "No translation yet;No translation yet",
+        "ru": "Так, Тоби… ты почти на месте;Если расчеты верны, то этот дом должен быть за парой поворотов..."
+      },
+      {
+        "kind": "DIALOGUE_7",
+        "en": "No translation yet",
+        "ru": "Ух, скоро дождь будет. Не попасть бы под него…"
+      },
+      {
+        "kind": "DIALOGUE_8",
+        "en": "No translation yet;No translation yet;",
+        "ru": "Черт! Сглазил!;Надо бы скорее двигаться дальше, если не хочу промокнуть до ниток! "
+      },
+      {
+        "kind": "DIALOGUE_9",
+        "en": "No translation yet;No translation yet",
+        "ru": "М…Мне показалось, или эта дверь открылась сама?;Не нравится мне это… но выбора нет - нужно идти внутрь."
+      },
+      {
+        "kind": "WRONG_WAY",
+        "en": "No translation yet",
+        "ru": "Нет, оттуда я пришел, мне надо в другую сторону..."
       }
+      
     ]
 }

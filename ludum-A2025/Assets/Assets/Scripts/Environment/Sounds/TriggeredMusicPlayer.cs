@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(Collider), typeof(AudioSource))]
 public class TriggeredMusicPlayer : MonoBehaviour
@@ -11,9 +12,14 @@ public class TriggeredMusicPlayer : MonoBehaviour
     [Tooltip("Тег объекта игрока")]
     public string playerTag = "Player";
 
+    [Header("Fade Settings")]
+    [Tooltip("Время в секундах для плавного увеличения громкости")]
+    public float fadeInDuration = 5f;
+
     private AudioSource audioSource;
     private int currentClipIndex = 0;
     private bool isPlaying = false;
+    private Coroutine fadeCoroutine;
 
     private void Reset()
     {
@@ -28,6 +34,7 @@ public class TriggeredMusicPlayer : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.playOnAwake = false;
         audioSource.loop = false;
+        audioSource.volume = 0f; // Начинаем с 0 громкости
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,7 +60,15 @@ public class TriggeredMusicPlayer : MonoBehaviour
         if (currentClipIndex < audioClips.Length)
         {
             audioSource.clip = audioClips[currentClipIndex];
+            audioSource.volume = 0f;
+
             audioSource.Play();
+
+            // Запускаем корутину плавного увеличения громкости
+            if (fadeCoroutine != null)
+                StopCoroutine(fadeCoroutine);
+            fadeCoroutine = StartCoroutine(FadeInVolume(fadeInDuration));
+
             isPlaying = true;
             Invoke(nameof(OnClipFinished), audioSource.clip.length);
         }
@@ -63,6 +78,18 @@ public class TriggeredMusicPlayer : MonoBehaviour
             isPlaying = false;
             audioSource.Stop();
         }
+    }
+
+    private IEnumerator FadeInVolume(float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            audioSource.volume = Mathf.Clamp01(elapsed / duration);
+            yield return null;
+        }
+        audioSource.volume = 1f; // Максимальная громкость
     }
 
     private void OnClipFinished()
@@ -76,15 +103,11 @@ public class TriggeredMusicPlayer : MonoBehaviour
         {
             isPlaying = false;
             audioSource.Stop();
+            if (fadeCoroutine != null)
+            {
+                StopCoroutine(fadeCoroutine);
+                fadeCoroutine = null;
+            }
         }
-    }
-
-    
-
-    private void StopMusic()
-    {
-        isPlaying = false;
-        audioSource.Stop();
-        CancelInvoke(nameof(OnClipFinished));
     }
 }

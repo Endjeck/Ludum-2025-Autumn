@@ -16,5 +16,10 @@ public enum TranslationEnum
     DIALOGUE_3 = 12,
     DIALOGUE_4 = 13,
     DIALOGUE_5 = 14,
+    DIALOGUE_6 = 15,
+    DIALOGUE_7 = 16,
+    DIALOGUE_8 = 17,
+    DIALOGUE_9 = 18,
+    WRONG_WAY = 19,
 
 }
