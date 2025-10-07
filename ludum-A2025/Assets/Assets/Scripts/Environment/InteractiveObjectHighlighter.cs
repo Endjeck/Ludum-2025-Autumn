@@ -12,7 +12,7 @@ public class InteractiveObjectHighlighter : MonoBehaviour
     public Color highlightColor = Color.yellow;
 
     [Tooltip("UI TextMeshProUGUI для отображения информации об объекте")]
-    public TextMeshProUGUI infoText;
+    public DialogueText infoText;
 
     private Camera mainCamera;
     private GameObject currentObject;            // Объект, на который сейчас наведен курсор
@@ -24,7 +24,7 @@ public class InteractiveObjectHighlighter : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-        infoText.gameObject.SetActive(false);
+        infoText.Back.SetActive(false);
     }
 
     private void Update()
@@ -81,11 +81,11 @@ public class InteractiveObjectHighlighter : MonoBehaviour
             originalColor = currentRenderer.material.color;
             currentRenderer.material.color = highlightColor;
         }
-        infoText.gameObject.SetActive(true);
+        infoText.Back.SetActive(true);
         if(PlayerPrefs.GetInt(TranslationConstants.TranslateParametr) == 0)
-            infoText.text = "Нажмите на Е";
+            infoText.Text.text = "Нажмите на Е";
         else
-            infoText.text = "Press Е";
+            infoText.Text.text = "Press Е";
         isPromptVisible = true;
     }
 
@@ -99,7 +99,7 @@ public class InteractiveObjectHighlighter : MonoBehaviour
         currentObject = null;
         currentRenderer = null;
 
-        infoText.gameObject.SetActive(false);
+        infoText.Back.SetActive(false);
         isPromptVisible = false;
     }
 
@@ -118,9 +118,14 @@ public class InteractiveObjectHighlighter : MonoBehaviour
         currentObject.TryGetComponent(out pickableDisk);
         EmptyDisk emptyDisk = null;
         currentObject.TryGetComponent<EmptyDisk>(out emptyDisk);
+        WrongDoor wrongDoor = null;
+        currentObject.TryGetComponent(out wrongDoor);
+        Rightdoor rightdoor = null;
+        currentObject.TryGetComponent(out rightdoor);
+
         if (description != null && !string.IsNullOrEmpty(description.Description))
         {
-            infoText.text = description.Description;
+            infoText.Text.text = description.Description;
         }
         else if (_note != null) 
         {
@@ -138,13 +143,24 @@ public class InteractiveObjectHighlighter : MonoBehaviour
         {
             emptyDisk.InsertDisk();
         }
+        else if (wrongDoor != null)
+        {
+            wrongDoor.OpenDoor();
+        }
+        else if (rightdoor != null)
+        {
+            rightdoor.OpenDoor();
+        }
+
         else
         {
             if (PlayerPrefs.GetInt(TranslationConstants.TranslateParametr) == 0)
-                infoText.text = "Информация об объекте отсутствует";
+                infoText.Text.text = "Информация об объекте отсутствует";
             else
-                infoText.text = "sorry, I forgot to put text here";
+                infoText.Text.text = "sorry, I forgot to put text here";
         }
-        infoText.gameObject.SetActive(true);
+        infoText.Back.SetActive(true);
+
+
     }
 }

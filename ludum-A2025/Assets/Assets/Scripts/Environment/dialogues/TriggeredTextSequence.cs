@@ -15,7 +15,7 @@ public class TriggeredTextSequence : MonoBehaviour
 
     [Header("UI Settings")]
     [Tooltip("Ссылка на TextMeshProUGUI для отображения текста")]
-    public TextMeshProUGUI displayText;
+    public DialogueText displayText;
 
     [Header("Player Settings")]
     [Tooltip("Тег объекта игрока")]
@@ -58,13 +58,13 @@ public class TriggeredTextSequence : MonoBehaviour
 
         for (int i = 0; i < textLines.Length; i++)
         {
-            displayText.gameObject.SetActive(true);
-            displayText.text = textLines[i];
+            displayText.Back.SetActive(true);
+            displayText.Text.text = textLines[i];
             
 
             yield return new WaitForSeconds(delays[i]);
 
-            displayText.gameObject.SetActive(false);
+            displayText.Back.SetActive(false);
         }
 
         sequenceRunning = false;
@@ -74,7 +74,7 @@ public class TriggeredTextSequence : MonoBehaviour
         _localizator = _locator.Get<Localizator>();
         _localizator.OnLanguageChange += ChangeText;
         ChangeText();
-        displayText.gameObject.SetActive(false);
+        displayText.Back.SetActive(false);
 
 
     }

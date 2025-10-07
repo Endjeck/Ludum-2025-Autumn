@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/BootScene.unity
     guid: b5af8d6d011a5064aaa5c67c2522a51b
   - enabled: 1
+    path: Assets/Scenes/First level.unity
+    guid: 5383e3cc4a1c87845a58d3c87e610b1a
+  - enabled: 1
     path: Assets/Scenes/Secomd level.unity
     guid: 02a973e7d438bcc4990fa4facebbb690
   - enabled: 1
     path: Assets/Scenes/Main menu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/First level.unity
-    guid: 5383e3cc4a1c87845a58d3c87e610b1a
   - enabled: 0
     path: Assets/Scenes/Kirillsmain 1.unity
     guid: 447abd44379184043bbf5fabf081e9bf
