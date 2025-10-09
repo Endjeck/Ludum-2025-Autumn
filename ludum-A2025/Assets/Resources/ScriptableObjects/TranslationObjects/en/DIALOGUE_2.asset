@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964db4a0a43cc0d4d94e291dc3be3fb3, type: 3}
   m_Name: DIALOGUE_2
   m_EditorClassIdentifier: 
-  _text: ergiu
+  _text: "Hmm, 3 doors\u2026 I think something like that was in my order\u2026"

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964db4a0a43cc0d4d94e291dc3be3fb3, type: 3}
   m_Name: DIALOGUE_3
   m_EditorClassIdentifier: 
-  _text: No translation yet
+  _text: "Ha! I knew it. Okay, one final push and that I can go home\u2026"

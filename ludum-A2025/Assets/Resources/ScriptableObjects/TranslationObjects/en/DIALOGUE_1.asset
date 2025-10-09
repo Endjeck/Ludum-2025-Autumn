@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964db4a0a43cc0d4d94e291dc3be3fb3, type: 3}
   m_Name: DIALOGUE_1
   m_EditorClassIdentifier: 
-  _text: No translation yet;No tranlssation yet;No translddation yet
+  _text: "Phew, that was hard\u2026; Okay, get it together, Tobias, you're almost
+    done\u2026;This stone must be right here; Just grab it and go home"

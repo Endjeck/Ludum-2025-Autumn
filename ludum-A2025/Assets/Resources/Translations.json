@@ -1,100 +1,120 @@
 {
-    "Translations": [
-        {
-            "kind": "PLAY",
-            "en": "Play",
-            "ru": "Играть"
-        },
-        {
-            "kind": "WELCOME",
-            "en": "Welcome to my test game",
-            "ru": "Йоууу! чё каво"
-        },
-        {
-            "kind": "COLLECTOR",
-            "en": "YES;WORKS",
-            "ru": "Работает;Типа"
-        },
-        {
-            "kind": "NOTE_1",
-            "en": "Very mnogo texta",
-            "ru": "Реально много текста"
-        },
-        {
-            "kind": "OBJECT_1",
-            "en": "Description",
-            "ru": "это база"
-        },
-        {
-            "kind": "OBJECT_2",
-            "en": "Description2",
-            "ru": "это база2"
-        },
-        {
-            "kind": "TITLE",
-            "en": "The black stone",
-            "ru": "Черный камень"
-        },
-        {
-            "kind": "NOTE_2",
-            "en": "Awesomness",
-            "ru": "Великолепная записка"
-        },
-        {
-            "kind": "OBJECT_3",
-            "en": "Smth",
-            "ru": "что-то"
-        },
-        {
-            "kind": "DIALOGUE_1",
-            "en": "No translation yet;No tranlssation yet;No translddation yet",
-            "ru": "Фууух, это было тяжело…;Ладно, соберись Тобаяс, ты почти справился…; Эта штука должны быть прямо тут, не далеко. Заберешь ее и домой"
-        },
-      {
-        "kind": "DIALOGUE_2",
-        "en": "ergiu",
-        "ru": "Хм, 3 двери… Помоему что то такое было в моем заказе… "
-      },
-      {
-        "kind": "DIALOGUE_3",
-        "en": "No translation yet",
-        "ru": "Ха! Так и знал. Фух, ладно, последний рывок и домой… "
-      },
-      {
-        "kind": "DIALOGUE_4",
-        "en": "No translation yet",
-        "ru": "Да! Конец этого подземелья!"
-      },
-      {
-        "kind": "DIALOGUE_5",
-        "en": "No translation yet;No translation yet;No translation yet;No translation yet",
-        "ru": "!!!!!;П…пусто?;Но как такое возможно?;Видимо, домой я отправлюсь нескоро…"
-      },
-      {
-        "kind": "DIALOGUE_6",
-        "en": "No translation yet;No translation yet",
-        "ru": "Так, Тоби… ты почти на месте;Если расчеты верны, то этот дом должен быть за парой поворотов..."
-      },
-      {
-        "kind": "DIALOGUE_7",
-        "en": "No translation yet",
-        "ru": "Ух, скоро дождь будет. Не попасть бы под него…"
-      },
-      {
-        "kind": "DIALOGUE_8",
-        "en": "No translation yet;No translation yet;",
-        "ru": "Черт! Сглазил!;Надо бы скорее двигаться дальше, если не хочу промокнуть до ниток! "
-      },
-      {
-        "kind": "DIALOGUE_9",
-        "en": "No translation yet;No translation yet",
-        "ru": "М…Мне показалось, или эта дверь открылась сама?;Не нравится мне это… но выбора нет - нужно идти внутрь."
-      },
-      {
-        "kind": "WRONG_WAY",
-        "en": "No translation yet",
-        "ru": "Нет, оттуда я пришел, мне надо в другую сторону..."
-      }
-      
-    ]
+  "Translations": [
+    {
+      "kind": "PLAY",
+      "en": "Play",
+      "ru": "Играть"
+    },
+    {
+      "kind": "WELCOME",
+      "en": "Welcome to my test game",
+      "ru": "Йоууу! чё каво"
+    },
+    {
+      "kind": "COLLECTOR",
+      "en": "YES;WORKS",
+      "ru": "Работает;Типа"
+    },
+    {
+      "kind": "NOTE_1",
+      "en": "Very mnogo texta",
+      "ru": "Реально много текста"
+    },
+    {
+      "kind": "OBJECT_1",
+      "en": "Description",
+      "ru": "это база"
+    },
+    {
+      "kind": "OBJECT_2",
+      "en": "Description2",
+      "ru": "это база2"
+    },
+    {
+      "kind": "TITLE",
+      "en": "The black stone",
+      "ru": "Черный камень"
+    },
+    {
+      "kind": "NOTE_2",
+      "en": "Awesomness",
+      "ru": "Великолепная записка"
+    },
+    {
+      "kind": "OBJECT_3",
+      "en": "Smth",
+      "ru": "что-то"
+    },
+    {
+      "kind": "DIALOGUE_1",
+      "en": "Phew, that was hard…; Okay, get it together, Tobias, you're almost done…;This stone must be right here; Just grab it and go home",
+      "ru": "Фууух, это было тяжело…; Ладно, соберись Тобаяс, ты почти справился…; Эта штука должны быть прямо тут, не далеко. Заберешь ее и домой"
+    },
+    {
+      "kind": "DIALOGUE_2",
+      "en": "Hmm, 3 doors… I think something like that was in my order…",
+      "ru": "Хм, 3 двери… Помоему что то такое было в моем заказе… "
+    },
+    {
+      "kind": "DIALOGUE_3",
+      "en": "Ha! I knew it. Okay, one final push and that I can go home…",
+      "ru": "Ха! Так и знал. Фух, ладно, последний рывок и домой… "
+    },
+    {
+      "kind": "DIALOGUE_4",
+      "en": "Yes! The end of this crypt!",
+      "ru": "Да! Конец этого подземелья!"
+    },
+    {
+      "kind": "DIALOGUE_5",
+      "en": "!!!!!;E...empty?;But how is that possible?;I guess I won't be going home soon…",
+      "ru": "!!!!!;П…пусто?;Но как такое возможно?;Видимо, домой я отправлюсь нескоро…"
+    },
+    {
+      "kind": "DIALOGUE_6",
+      "en": "So, Tobi… you're almost there;If my calculations are right, this house should be after a couple turns ",
+      "ru": "Так, Тоби… ты почти на месте;Если расчеты верны, то этот дом должен быть за парой поворотов..."
+    },
+    {
+      "kind": "DIALOGUE_7",
+      "en": "Ugh, it'll rain soon. Hope I don't get caught in it…",
+      "ru": "Ух, скоро дождь будет. Не попасть бы под него…"
+    },
+    {
+      "kind": "DIALOGUE_8",
+      "en": "Crap! Jinxed it! I should move faster if I don't want to get soaked!;",
+      "ru": "Черт! Сглазил!;Надо бы скорее двигаться дальше, если не хочу промокнуть до ниток! "
+    },
+    {
+      "kind": "DIALOGUE_9",
+      "en": "D...Did that door open by itself? ; I don't like this… but I have no choice - gotta go in",
+      "ru": "М…Мне показалось, или эта дверь открылась сама?;Не нравится мне это… но выбора нет - нужно идти внутрь."
+    },
+    {
+      "kind": "WRONG_WAY",
+      "en": "No, thats the way I came. I have to go another direction.",
+      "ru": "Нет, оттуда я пришел. Мне надо в другую сторону."
+    },
+    {
+      "kind": "DIALOGUE_10",
+      "en": "No translation yet",
+      "ru": "Нет, оттуда я пришел, мне надо в другую сторону..."
+    },
+    {
+      "kind": "AUTHORS",
+      "en": "Authors",
+      "ru": "Авторы"
+    },
+    {
+      "kind": "LANGUAGE",
+      "en": "Language",
+      "ru": "Язык"
+    },
+    {
+      "kind": "BACK",
+      "en": "Back",
+      "ru": "Назад"
+    }
+
+  ]
 }

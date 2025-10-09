@@ -21,5 +21,9 @@ public enum TranslationEnum
     DIALOGUE_8 = 17,
     DIALOGUE_9 = 18,
     WRONG_WAY = 19,
+    DIALOGUE_10 = 20,
+    AUTHORS = 21,
+    LANGUAGE = 22,
+    BACK = 23,
 
 }
